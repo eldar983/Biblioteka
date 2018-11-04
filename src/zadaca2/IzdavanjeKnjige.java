@@ -18,7 +18,7 @@ public class IzdavanjeKnjige {
 		while(provjera) {
 			System.out.println("Dobrodsli u biblioteku.\nUnesite svoj broj racuna: ");
 			
-			brojRacunaKorisnika = input.nextInt();
+			brojRacunaKorisnika = BibliotekaTest.reTry(input);
 			
 			for(int i = 0; i < racuni.size(); i++) {
 				if(racuni.get(i).getBrojRacuna() == brojRacunaKorisnika) {
@@ -41,7 +41,7 @@ public class IzdavanjeKnjige {
 			}
 			if(!provjera) {
 				System.out.println("Unesite broj knjige koju zelite podignuti: ");
-				 brojKnjige = input.nextInt();
+				 brojKnjige = BibliotekaTest.reTry(input);
 				 int provjeraKnjige = 0;
 				 while(provjeraKnjige < knjige.size()) {
 				
@@ -56,7 +56,7 @@ public class IzdavanjeKnjige {
 					
 					else if(provjeraKnjige == knjige.size() -1) {
 						System.out.println("Uneseni broj knjige nije pronadjen, provjerite da li imate tacan broj i pokusajte ponovo: ");
-						brojKnjige = input.nextInt();
+						brojKnjige = BibliotekaTest.reTry(input);
 						provjeraKnjige = 0;
 					}
 					else 

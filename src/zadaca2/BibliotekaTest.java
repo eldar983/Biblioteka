@@ -1,6 +1,7 @@
 package zadaca2;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BibliotekaTest {
@@ -24,7 +25,7 @@ public class BibliotekaTest {
 		int opcija = -1;
 		
 		while(opcija != 0) {
-			int izbor = input.nextInt();
+			int izbor = reTry(input);
 
 
 		switch (izbor) {
@@ -50,7 +51,7 @@ public class BibliotekaTest {
 				System.out.print("\nUnijeli ste pogresan broj! Pokusajte ponovo.\n");
 				
 
-			izbor = input.nextInt();
+			izbor = reTry(input);
 			}
 		izbornik();
 		}
@@ -63,4 +64,16 @@ public class BibliotekaTest {
 				+ "\n3. Podigni knjigu" + "\n4. Vrati knjigu" + "\n0. Izlaz");	
 		System.out.println("***********************");
 	}
+	
+	public static int reTry(Scanner input) {
+
+		 try {
+		     return input.nextInt();
+		 } catch (InputMismatchException ex) {
+			     input.nextLine(); //Ova ovdje linija koda ce prebaciti kursor na sljedecu liniju
+			     System.out.println("Unos mora biti tipa Integer, pokusajte ponovo:");
+			     return reTry(input);
+			 }
+
+		 }
 }
