@@ -34,7 +34,6 @@ public class KreiranjeRacuna {
 	}
 
 	public static void kreirajRacun(ArrayList<KreiranjeRacuna> racuni, Scanner input) {
-		// Scanner input = new Scanner(System.in);
 		
 
 		KreiranjeRacuna racun = new KreiranjeRacuna();

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class BibliotekaTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 
 		System.out.println("***********************");
@@ -19,16 +19,19 @@ public class BibliotekaTest {
 		ArrayList<KreiranjeRacuna> racuni = new ArrayList<KreiranjeRacuna>();
 		ArrayList<KreiranjeKnjige> knjige = new ArrayList<KreiranjeKnjige>();
 		
-			izbornik();
+		Fajlovi.ucitajFajlove(racuni, knjige, Zapisnik.lista);
+		
+			
 
 		
 		int opcija = -1;
+		izbornik();
 		
 		while(opcija != 0) {
-			int izbor = reTry(input);
+			 opcija = reTry(input);
 
 
-		switch (izbor) {
+		switch (opcija) {
 
 		case 1:
 			KreiranjeRacuna.kreirajRacun(racuni, input);
@@ -42,6 +45,9 @@ public class BibliotekaTest {
 		case 4:
 			VracanjeKnjige.vratiKnjigu(knjige, racuni, input);
 			break;
+		case 5:
+			Zapisnik.listaIzdatihKnjiga();
+			break;
 		case 0:
 			System.out.println("Izabrali ste izlaz iz biblioteke");
 			break;
@@ -51,9 +57,11 @@ public class BibliotekaTest {
 				System.out.print("\nUnijeli ste pogresan broj! Pokusajte ponovo.\n");
 				
 
-			izbor = reTry(input);
+			opcija = reTry(input);
 			}
-		izbornik();
+		if(opcija != 0) {
+			izbornik();
+			}
 		}
 	}
 			
@@ -61,7 +69,7 @@ public class BibliotekaTest {
 	static void izbornik() {
 		System.out.println("\n***********************");
 		System.out.println(" Izaberite opciju:" + "\n1. Kreiraj racun" + "\n2. Kreiraj knjigu"
-				+ "\n3. Podigni knjigu" + "\n4. Vrati knjigu" + "\n0. Izlaz");	
+				+ "\n3. Podigni knjigu" + "\n4. Vrati knjigu" + "\n5. Lista izdatih knjiga" + "\n0. Izlaz");	
 		System.out.println("***********************");
 	}
 	

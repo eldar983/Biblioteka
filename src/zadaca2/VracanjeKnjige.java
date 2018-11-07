@@ -8,7 +8,7 @@ public class VracanjeKnjige {
 	
 	public static void vratiKnjigu(ArrayList<KreiranjeKnjige> knjige, ArrayList<KreiranjeRacuna> racuni, Scanner input) {
 		
-		System.out.println("Unesite vas broj racuna: ");
+		System.out.println("Dobrodosli u odjel za vracanje knjige\nUnesite vas broj racuna: ");
 		int brojRacunaKorisnika = BibliotekaTest.reTry(input);
 		System.out.println("Unesite broj knjige koju zelite vratiti: ");
 		int brojVraceneKnjige = BibliotekaTest.reTry(input);

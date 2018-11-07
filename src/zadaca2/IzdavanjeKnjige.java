@@ -1,8 +1,11 @@
 package zadaca2;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Scanner;
 
 
 public class IzdavanjeKnjige {
@@ -11,12 +14,15 @@ public class IzdavanjeKnjige {
 		Zapisnik zapisnikObject = new Zapisnik();
 		int brojKnjige = 0;
 		boolean provjera = true;
-		Date datum = new Date();
-		String datumIzdavanja;
+		
+		DateFormat df = new SimpleDateFormat("dd/MMM/yyyy HH:mm:ss");
+		Date today = Calendar.getInstance().getTime();
+		
+		String datumIzdavanja = df.format(today);
 		int brojRacunaKorisnika = 0;
 		boolean ima3Knjige = false;
 		while(provjera) {
-			System.out.println("Dobrodsli u biblioteku.\nUnesite svoj broj racuna: ");
+			System.out.println("Dobrodsli u odjel za izdavanje knjige.\nUnesite svoj broj racuna: ");
 			
 			brojRacunaKorisnika = BibliotekaTest.reTry(input);
 			
@@ -48,7 +54,6 @@ public class IzdavanjeKnjige {
 					if(knjige.get(provjeraKnjige).getBrojKnjige() == brojKnjige && knjige.get(provjeraKnjige).isStatus() == true) {
 						System.out.println("Izvolite vasu knjigu, i ne zaboravite je vratiti kada zavrsite sa citanjem :)");
 						knjige.get(provjeraKnjige).setStatus(false);
-						datumIzdavanja = datum.toString();
 						zapisnikObject.zapisnik(brojRacunaKorisnika, knjige.get(provjeraKnjige).getBrojKnjige(), datumIzdavanja);
 						provjeraKnjige++;
 						break;

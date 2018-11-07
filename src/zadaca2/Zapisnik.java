@@ -1,7 +1,10 @@
 package zadaca2;
 
-import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class Zapisnik {
@@ -17,11 +20,14 @@ public class Zapisnik {
 	}
 	
 	public static boolean povratKnjige (int brojRacuna, int brojKnjige) {
-		Date datum = new Date();
+		DateFormat df = new SimpleDateFormat("dd/MMM/yyyy HH:mm:ss");
+		Date today = Calendar.getInstance().getTime();
+		
+		String datum = df.format(today);
 		String provjera = "Korisnik " + brojRacuna + " je iznajmio " + " knjigu pod brojem " + brojKnjige + " i datum izdavanja je: ";
 		for (int i = 0; i < lista.size(); i++) {
 			if (provjera.equals(lista.get(i).substring(0, 70))) {
-				lista.set(i, " " + lista.get(i) + " (Datum vracanja je: " + datum.toString() + ")");
+				lista.set(i, " " + lista.get(i) + " (Datum vracanja je: " + datum + ")");
 				return true;
 			}
 		}
