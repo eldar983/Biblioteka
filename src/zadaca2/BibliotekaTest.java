@@ -49,6 +49,7 @@ public class BibliotekaTest {
 			Zapisnik.listaIzdatihKnjiga();
 			break;
 		case 0:
+			Fajlovi.snimiUFajlove(racuni, knjige, Zapisnik.lista);
 			System.out.println("Izabrali ste izlaz iz biblioteke");
 			break;
 
